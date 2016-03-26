@@ -13,7 +13,7 @@ This version was translated for English, Portuguese and Spanish.
 
 .: Quick install instructions (to be used by the system administrator) :.
 
-0) Be sure you have (at least) Moodle 2.6.x or upper installed.
+0) Be sure you have (at least) Moodle 2.7.x or upper installed.
 1) Be sure to have the latest language package, such as English (en), Portuguese (pt_br), or Spanish (es).
 2) Be sure to have the latest version of the block "Moodle Version" in Moodle.org.
 3) Unpack 'block_moodleversion_xxxx.zip'.
