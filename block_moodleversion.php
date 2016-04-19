@@ -30,18 +30,21 @@ class block_moodleversion extends block_base
 		$dt->year = substr($version[1], 0, 4);
 		$dt->month = substr($version[1], 4, 2);
 		$dt->date = substr($version[1], 6, 2);
-		$mysql = $DB->get_record_sql('SELECT version();');
+
+		$mysql = $DB->get_record_sql('Select @@version as version');
 		if(empty($mysql)){
-			$mysql = $DB->get_record_sql('Select @@version');
+            $mysql = $DB->get_record_sql('SELECT version() as version');
 		}
 		
+        //print_r($mysql);
+
 		$this->content =  new stdClass;
 		$this->content->text   = get_string('version', 'block_moodleversion')."<b>".$version[0]." (".$CFG->version.")</b>";
 		$this->content->text   .= "<br>".get_string('release', 'block_moodleversion')."<b>".get_string('date_release', 'block_moodleversion', $dt)."</b>";
 		if(!$this->config->phpversion)
 			$this->content->text   .= "<br>PHP: <b>".phpversion()."</b>";
 		if(!$this->config->mysqlversion)
-			$this->content->text   .= "<br>MySQL: <b>".$mysql->value."</b>";
+			$this->content->text   .= "<br>MySQL: <b>".$mysql->version."</b>";
 		if($this->config->phpextensions) {
 			$php_extensions_recommended = array("mbstring", "openssl", "tokenizer", "xmlrpc", "soap", "zlib", "intl");
 			$php_extensions_check = array();

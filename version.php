@@ -11,8 +11,8 @@
  */
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2016032600;
+$plugin->version = 2016041900;
 $plugin->requires = 2014051200;
 $plugin->component = 'block_moodleversion';
-$plugin->release = 'v1.26 (2016032600)';
+$plugin->release = 'v1.28 (2016041900)';
 $plugin->maturity = MATURITY_STABLE;
